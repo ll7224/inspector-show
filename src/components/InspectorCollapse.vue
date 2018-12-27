@@ -57,7 +57,12 @@ export default {
   created() {
     this.getDataPush()
       .then(() => {})
-      .catch(() => {});
+      .catch(() => {
+        this.$toast({
+          duration: 850,
+          message: "加载失败"
+        });
+      });
   }
 };
 </script>
