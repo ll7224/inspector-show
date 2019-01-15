@@ -2,6 +2,10 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./routers/router";
 import store from "./store";
+import "babel-polyfill";
+import promise from "es6-promise";
+promise.polyfill();
+Vue.config.debug = true;
 import {
   Row,
   Col,
@@ -11,7 +15,8 @@ import {
   PullRefresh,
   Cell,
   CellGroup,
-  Toast
+  Toast,
+  List
 } from "vant";
 
 Vue.config.productionTip = false;
@@ -23,7 +28,8 @@ Vue.use(Row)
   .use(PullRefresh)
   .use(Cell)
   .use(CellGroup)
-  .use(Toast);
+  .use(Toast)
+  .use(List);
 new Vue({
   router,
   store,

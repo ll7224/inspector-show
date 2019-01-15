@@ -9,9 +9,9 @@ Vue.use(Vuex);
 const rebuilddata = datapush => {
   const data = {
     ...datapush,
-    title: `优先级：${datapush.priority} 待检批次：${
-      datapush.materialCode
-    } 物料：${datapush.materialName}（${datapush.materialCode}）`
+    title: `待检批次：${datapush.mlotNO} 物料：${datapush.partname}（${
+      datapush.partcode
+    }）`
   };
   return data;
 };
@@ -29,10 +29,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    [GET_DATAPUSH]: ({ commit }) =>
+    [GET_DATAPUSH]: ({ commit }, skipcount) =>
       new Promise(resolve => {
         // eslint-disable-line no-unused-vars
-        getDatapush()
+        getDatapush(skipcount)
           .then(response => {
             commit(GET_DATAPUSH_SUCCESS, { response });
             resolve(response);

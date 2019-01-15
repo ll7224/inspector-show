@@ -20,7 +20,7 @@ ajax.interceptors.response.use(
       return {};
     }
     if (responseData.success) {
-      return responseData.data;
+      return responseData.result.items;
     }
     return Promise.reject(response);
   },
