@@ -33,7 +33,7 @@ export default {
   computed: {
     ...mapGetters(["datapush"]),
     datapusharraylist() {
-      //      this.datapusharray = this.datapusharray.concat(this.datapush);
+           this.datapusharray = this.datapusharray.concat(this.datapush);
       return this.datapusharray;
     }
   },
